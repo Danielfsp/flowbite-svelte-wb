@@ -44,11 +44,11 @@
 {/if}
 <div class={twMerge(divClass, size, $$props.class)}>
   {#if labelInside}
-    <div class={twJoin(labelInsideClass, barColors[color])} style="width: {$_progress}%">
+    <div class={twJoin(labelInsideClass, barColors[color])} style="width: {$_progress > 100 ? 100 : _progress}%">
       {$_progress.toFixed(precision)}%
     </div>
   {:else}
-    <div class={twJoin(barColors[color], size, 'rounded-full')} style="width: {$_progress}%" />
+    <div class={twJoin(barColors[color], size, 'rounded-full')} style="width: {$_progress > 100 ? 100 : _progress}%" />
   {/if}
 </div>
 
